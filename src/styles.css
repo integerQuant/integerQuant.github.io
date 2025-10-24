@@ -401,6 +401,36 @@ footer {
 
   transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
+
+@media (max-width: 560px) {
+  .lang-pills {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .hero-grid{
+    padding: 10px;
+  }
+  .hero h1.reveal {
+    text-align: center;
+  }
+  .hero p.reveal {
+    text-align: center;
+  }
+  .hero .badges.reveal {
+    animation-delay: 220ms;
+    justify-content: center;
+}
+  .contact-btn {
+    display: none;
+  }
+  .brand {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+}
+
 .pill:hover {
   transform: translateY(-1px);
   border-color: var(--pill-color);
