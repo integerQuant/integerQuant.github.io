@@ -4,6 +4,14 @@ type Props = {
   avatar?: string;
 };
 
+const badges = [
+  "Quant Research",
+  "Trading",
+  "Risk",
+  "Portfolio Management",
+  "Full Stack"
+];
+
 // export default function Hero({ name, bio }: Props) {
 export default function Hero({ }: Props) {
   return (
@@ -16,13 +24,17 @@ export default function Hero({ }: Props) {
               "Hello. I’m currently working at the intersection of software and quantitative finance as a junior quantitative trader. I design and ship tools for research, risk, portfolio management, and trading. I enjoy solving complex problems with fast and reliable systems. I often publish open-source code that replicates financial papers and explores quantitative finance research."
               }
           </p>
-          <div className="badges reveal">
-            <span className="badge">Quant Research</span>
-            <span className="badge">Trading</span>
-            <span className="badge">Risk</span>
-            <span className="badge">Portfolio Management</span>
-            <span className="badge"></span>
-          </div>
+          <div className="badges">
+                {badges.map((label, i) => (
+                  <span
+                    key={label}
+                    className="badge reveal"
+                    style={{ animationDelay: `${120 + i * 60}ms` }}
+                  >
+                    {label}
+                  </span>
+                ))}
+              </div>
         </div>
       </div>
     </section>
