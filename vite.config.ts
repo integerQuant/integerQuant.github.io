@@ -1,17 +1,10 @@
-import { defineConfig, loadEnv } from "vite";
+// vite.config.ts
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-export default defineConfig(({ mode }) => {
-  // Load .env files for the current mode
-  // Looks for .env, .env.local, .env.development, etc. in the project root
-  const env = loadEnv(mode, process.cwd(), "");
-
-  return {
-    plugins: [react()],
-    define: {
-      // Inline as literals so they are always present in the bundle
-      "import.meta.env.GITHUB_USERNAME": JSON.stringify(env.GITHUB_USERNAME ?? ""),
-      "import.meta.env.GITHUB_TOKEN": JSON.stringify(env.GITHUB_TOKEN ?? "")
-    }
-  };
+export default defineConfig({
+  plugins: [react()],
+  // For user site or custom domain, leave base undefined.
+  // For a project site at username.github.io/repo, set:
+  // base: "/repo/"
 });
