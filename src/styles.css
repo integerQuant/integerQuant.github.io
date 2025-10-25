@@ -223,6 +223,12 @@ nav a {
   background-color: var(--bg);
 
   background-image:
+      radial-gradient(
+      circle at 50% 50%,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0) 60%,
+      rgba(0,0,0,1) 90%
+    ),
     repeating-linear-gradient(0deg,
       transparent 0,
       transparent calc(calc(var(--grid-size) * var(--major-step)) - var(--major-thickness)),
@@ -244,6 +250,19 @@ nav a {
       transparent calc(var(--grid-size) - 1px),
       var(--grid-minor) calc(var(--grid-size) - 1px),
       var(--grid-minor) var(--grid-size));
+  background-repeat: no-repeat, repeat, repeat, repeat, repeat;
+  background-size:
+    100% 100%,     /* vignette covers whole viewport */
+    auto,
+    auto,
+    auto,
+    auto;
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0;
 }
 
 .bgfx::before {
