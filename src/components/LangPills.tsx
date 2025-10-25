@@ -27,8 +27,8 @@ export default function LangPills({ langs }: { langs: Lang[] }) {
                   className="pill-icon-img"
                   src={icon.url}
                   alt=""
-                  width={18}
-                  height={18}
+                  width={24}
+                  height={24}
                   loading="lazy"
                   decoding="async"
                 />

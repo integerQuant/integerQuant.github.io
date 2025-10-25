@@ -13,6 +13,21 @@ export default function App() {
   const [stats, setStats] = React.useState<any | null>(null);
   const [error, setError] = React.useState<string | null>(null);
 
+  const langList = [
+            "Python",
+            "Pandas",
+            "NumPy",
+            "FastAPI",
+            "Selenium",
+            "PostgreSQL",
+            "DuckDB",
+            "Rust",
+            "TypeScript",
+            "React",
+            "AWS",
+            "Docker"
+          ]
+
   React.useEffect(() => {
     let cancelled = false;
     async function load() {
@@ -48,26 +63,8 @@ export default function App() {
       {stats ? <Hero name={stats.name} bio={stats.bio} avatar={stats.avatar_url} /> : <Hero />}
       <main>
         {error && <div className="container card" role="alert">Error: {error}</div>}
-        {stats && <LangPills langs={
-          [
-            "Python",
-            "Pandas",
-            "NumPy",
-            "FastAPI",
-            "Selenium",
-            "PostgreSQL",
-            "DuckDB",
-            "Rust",
-            "TypeScript",
-            "React",
-            "AWS",
-            "Docker"
-          ]
-        } 
-        />}
-
+        {stats && <LangPills langs={langList} />}
         {stats && <Stats data={stats} />}
-        
         {repos && <RepoGrid repos={repos} />}
       </main>
       <Footer />
