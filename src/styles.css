@@ -514,7 +514,7 @@ footer {
 
 /* Pill */
 .pill {
-  --bg-alpha: 0.18;
+  --bg-alpha: 0.28;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -567,7 +567,7 @@ footer {
 
   .brand {
     font-size: 1.2rem;
-    text-align: center;
+    text-align: left;
   }
 
   .badges {
@@ -664,3 +664,24 @@ footer {
   margin-top: 48px;
   font-family: "OCR-A", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
+
+.site-header .header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.github-icon {
+  width: 32px;
+  height: 32px;
+    filter: brightness(0) invert(1);
+
+}
+

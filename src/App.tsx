@@ -17,6 +17,7 @@ export default function App() {
             "Python",
             "Pandas",
             "NumPy",
+            "sklearn",
             "FastAPI",
             "Selenium",
             "PostgreSQL",

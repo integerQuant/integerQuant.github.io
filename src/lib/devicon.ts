@@ -1,11 +1,13 @@
 // Map common names and aliases to devicon slugs and variants
 // reference: https://devicon.dev/ naming (e.g. react, typescript, python)
-const ALIASES: Record<string, { slug: string; variant?: "original" | "plain" | "line" | "original-wordmark" | "plain-wordmark"}> = {
+const ALIASES: Record<string, { slug: string; variant?: "original" | "plain" | "plain-colored" | "line" | "original-wordmark" | "plain-wordmark"}> = {
   python: { slug: "python", variant: "original" },
   pandas : { slug: "pandas", variant: "original" },
   numpy : { slug: "numpy", variant: "original" },
   fastapi : { slug: "fastapi", variant: "plain" },
   selenium : { slug: "selenium", variant: "original" },
+  sklearn : { slug: "scikitlearn", variant: "original" },
+  scipy : { slug: "scipy", variant: "original" },
 
 
   sql: { slug: "postgresql", variant: "original" },  
@@ -44,6 +46,9 @@ const ALIASES: Record<string, { slug: string; variant?: "original" | "plain" | "
   csharp: { slug: "csharp", variant: "original" },
   "c#": { slug: "csharp", variant: "original" },
   c: { slug: "c", variant: "original" },
+
+  github: { slug: "github", variant: "original" },
+
 };
 
 function normalize(name: string) {

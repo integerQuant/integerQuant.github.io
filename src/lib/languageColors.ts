@@ -13,7 +13,7 @@ const languageColors: Record<string, string> = {
   "C++": "#f34b7d",
   C: "#555555",
   Go: "#00ADD8",
-  Rust: "#dea584",
+  Rust: "#D34516",
   PHP: "#4F5D95",
   Ruby: "#701516",
   Swift: "#F05138",
@@ -35,16 +35,18 @@ const languageColors: Record<string, string> = {
   Elixir: "#6e4a7e",
   Erlang: "#B83998",
 
-  PostgreSQL: "#336791",
+  PostgreSQL: "#2d75afff",
   DuckDB: "#fff100",
 
   aws: "#FF9900",
   docker: "#2496ed",
 
   pandas: "#8d79dd",
-  numpy: "#013243",
+  numpy: "#427f94ff",
   fastapi: "#009688",
   selenium: "#cf0a2b",
+  sklearn: "#ffb83e",
+  scipy: "#8ca9d1",
 
 
 
