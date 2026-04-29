@@ -31,6 +31,7 @@ const languageColors: Record<string, string> = {
   Vite: "#bd34fe",
   Electron: "#9feaf9",
   "Node.js": "#5fa04e",
+  NestJS: "#e0234e",
   pnpm: "#f69220",
 
   Haskell: "#5e5086",

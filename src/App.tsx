@@ -37,6 +37,7 @@ const langList = [
   "uv",
   "pnpm",
   "Node.js",
+  "NestJS",
 ];
 
 export default function App() {

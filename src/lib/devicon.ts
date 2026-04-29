@@ -38,6 +38,7 @@ const ALIASES: Record<string, IconAlias> = {
   js: { slug: "javascript", variant: "original" },
   nodejs: { slug: "nodejs", variant: "original" },
   node: { slug: "nodejs", variant: "original" },
+  nestjs: { slug: "nestjs", variant: "original" },
   pnpm: { slug: "pnpm", variant: "original" },
 
   react: { slug: "react", variant: "original" },
