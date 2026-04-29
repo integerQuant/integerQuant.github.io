@@ -1,15 +1,19 @@
 // Map common names and aliases to devicon slugs and variants
 // reference: https://devicon.dev/ naming (e.g. react, typescript, python)
-const ALIASES: Record<string, { slug: string; variant?: "original" | "plain" | "plain-colored" | "line" | "original-wordmark" | "plain-wordmark"}> = {
+type IconVariant = "original" | "plain" | "plain-colored" | "line" | "original-wordmark" | "plain-wordmark";
+type IconAlias = { slug: string; variant?: IconVariant } | { url: string };
+
+const ALIASES: Record<string, IconAlias> = {
   python: { slug: "python", variant: "original" },
   pandas : { slug: "pandas", variant: "original" },
   numpy : { slug: "numpy", variant: "original" },
-  pyarrow: { slug: "apache", variant: "original" },
   fastapi : { slug: "fastapi", variant: "plain" },
   selenium : { slug: "selenium", variant: "original" },
   sklearn : { slug: "scikitlearn", variant: "original" },
   scikitlearn : { slug: "scikitlearn", variant: "original" },
-  scipy : { slug: "scipy", variant: "original" },
+  scipy: { url: "https://scipy.org/images/logo.svg" },
+  statsmodels: { url: "https://www.statsmodels.org/stable/_static/statsmodels-logo-v2-bw.svg" },
+  uv: { url: "https://docs.astral.sh/uv/assets/logo-letter.svg" },
   jupyter: { slug: "jupyter", variant: "original" },
   matplotlib: { slug: "matplotlib", variant: "original" },
   pytest: { slug: "pytest", variant: "original" },
@@ -21,9 +25,9 @@ const ALIASES: Record<string, { slug: string; variant?: "original" | "plain" | "
   mysql: { slug: "mysql", variant: "original" },
   sqlite: { slug: "sqlite", variant: "original" },
   duckdb: { slug: "duckdb", variant: "original" },
+  redis: { slug: "redis", variant: "original" },
 
   docker: { slug: "docker", variant: "plain" },
-  cmake: { slug: "cmake", variant: "original" },
 
   rust: { slug: "rust", variant: "original" },
 
@@ -43,8 +47,6 @@ const ALIASES: Record<string, { slug: string; variant?: "original" | "plain" | "
   vite: { slug: "vitejs", variant: "original" },
   vitejs: { slug: "vitejs", variant: "original" },
   electron: { slug: "electron", variant: "original" },
-  plotlyjs: { slug: "plotly", variant: "original" },
-  plotly: { slug: "plotly", variant: "original" },
 
   html: { slug: "html5", variant: "original" },
   css: { slug: "css3", variant: "original" },
@@ -82,6 +84,7 @@ export function deviconFor(name?: string): { url: string; title: string } | null
   const key = normalize(name);
   const hit = ALIASES[key];
   if (!hit) return null;
+  if ("url" in hit) return { url: hit.url, title: name };
   const variant = hit.variant ?? "original";
   // devicon SVG url pattern
   const url = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${hit.slug}/${hit.slug}-${variant}.svg`;
