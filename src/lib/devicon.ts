@@ -4,10 +4,15 @@ const ALIASES: Record<string, { slug: string; variant?: "original" | "plain" | "
   python: { slug: "python", variant: "original" },
   pandas : { slug: "pandas", variant: "original" },
   numpy : { slug: "numpy", variant: "original" },
+  pyarrow: { slug: "apache", variant: "original" },
   fastapi : { slug: "fastapi", variant: "plain" },
   selenium : { slug: "selenium", variant: "original" },
   sklearn : { slug: "scikitlearn", variant: "original" },
+  scikitlearn : { slug: "scikitlearn", variant: "original" },
   scipy : { slug: "scipy", variant: "original" },
+  jupyter: { slug: "jupyter", variant: "original" },
+  matplotlib: { slug: "matplotlib", variant: "original" },
+  pytest: { slug: "pytest", variant: "original" },
 
 
   sql: { slug: "postgresql", variant: "original" },  
@@ -18,6 +23,7 @@ const ALIASES: Record<string, { slug: string; variant?: "original" | "plain" | "
   duckdb: { slug: "duckdb", variant: "original" },
 
   docker: { slug: "docker", variant: "plain" },
+  cmake: { slug: "cmake", variant: "original" },
 
   rust: { slug: "rust", variant: "original" },
 
@@ -26,9 +32,19 @@ const ALIASES: Record<string, { slug: string; variant?: "original" | "plain" | "
 
   javascript: { slug: "javascript", variant: "original" },
   js: { slug: "javascript", variant: "original" },
+  nodejs: { slug: "nodejs", variant: "original" },
+  node: { slug: "nodejs", variant: "original" },
+  pnpm: { slug: "pnpm", variant: "original" },
 
   react: { slug: "react", variant: "original" },
   reactjs: { slug: "react", variant: "original" },
+  nextjs: { slug: "nextjs", variant: "original" },
+  tailwindcss: { slug: "tailwindcss", variant: "original" },
+  vite: { slug: "vitejs", variant: "original" },
+  vitejs: { slug: "vitejs", variant: "original" },
+  electron: { slug: "electron", variant: "original" },
+  plotlyjs: { slug: "plotly", variant: "original" },
+  plotly: { slug: "plotly", variant: "original" },
 
   html: { slug: "html5", variant: "original" },
   css: { slug: "css3", variant: "original" },
@@ -39,6 +55,12 @@ const ALIASES: Record<string, { slug: string; variant?: "original" | "plain" | "
   golang: { slug: "go", variant: "original" },
 
   aws: { slug: "amazonwebservices", variant: "plain-wordmark" },
+  supabase: { slug: "supabase", variant: "original" },
+  sentry: { slug: "sentry", variant: "original" },
+  vercel: { slug: "vercel", variant: "original" },
+  githubactions: { slug: "githubactions", variant: "original" },
+  playwright: { slug: "playwright", variant: "original" },
+  vitest: { slug: "vitest", variant: "original" },
 
   java: { slug: "java", variant: "original" },
   cpp: { slug: "cplusplus", variant: "original" },

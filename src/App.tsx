@@ -6,28 +6,53 @@ import Stats from "./components/Stats";
 import Footer from "./components/Footer";
 import BackgroundFX from "./components/BackgroundFX";
 import LangPills from "./components/LangPills";
-import { fetchReposSortedByRecent, fetchUserStats, type Repo } from "./lib/github";
+import { fetchReposSortedByRecent, fetchUserStats, type Repo, type UserStats } from "./lib/github";
+
+const langList = [
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "Vite",
+  "Electron",
+  "Remotion",
+  "TanStack Query",
+  "Go",
+  "Python",
+  "Rust",
+  "C",
+  "PostgreSQL",
+  "Docker",
+  "Supabase",
+  "Upstash Redis",
+  "Sentry",
+  "Vercel",
+  "OpenAI",
+  "GitHub Actions",
+  "Vitest",
+  "Playwright",
+  "Jupyter",
+  "pandas",
+  "NumPy",
+  "SciPy",
+  "scikit-learn",
+  "statsmodels",
+  "PyArrow",
+  "uv",
+  "PyO3",
+  "maturin",
+  "ESP-IDF",
+  "CMake",
+  "Plotly.js",
+  "pnpm",
+  "Node.js",
+  "Zod",
+];
 
 export default function App() {
   const [repos, setRepos] = React.useState<Repo[] | null>(null);
-  const [stats, setStats] = React.useState<any | null>(null);
+  const [stats, setStats] = React.useState<UserStats | null>(null);
   const [error, setError] = React.useState<string | null>(null);
-
-  const langList = [
-            "Python",
-            "Pandas",
-            "NumPy",
-            "sklearn",
-            "FastAPI",
-            "Selenium",
-            "PostgreSQL",
-            "DuckDB",
-            "Rust",
-            "TypeScript",
-            "React",
-            "AWS",
-            "Docker"
-          ]
 
   React.useEffect(() => {
     let cancelled = false;
@@ -39,9 +64,10 @@ export default function App() {
           setStats(s);
           sessionStorage.setItem("gh-cache-v1", JSON.stringify({ repos: r, stats: s }));
         }
-      } catch (e: any) {
-        if (!cancelled) setError(e?.message || "Failed to load GitHub data");
-      } finally {
+      } catch (e: unknown) {
+        if (!cancelled) {
+          setError(e instanceof Error ? e.message : "Failed to load GitHub data");
+        }
       }
     }
     // Try cache first
@@ -61,7 +87,7 @@ export default function App() {
     <>
       <BackgroundFX />
       <Header />
-      {stats ? <Hero name={stats.name} bio={stats.bio} avatar={stats.avatar_url} /> : <Hero />}
+      <Hero />
       <main>
         {error && <div className="container card" role="alert">Error: {error}</div>}
         {stats && <LangPills langs={langList} />}

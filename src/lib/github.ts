@@ -32,6 +32,44 @@ export type Repo = {
   disabled?: boolean;
 };
 
+type GitHubRepoResponse = {
+  id: number;
+  name: string;
+  full_name: string;
+  html_url: string;
+  description?: string | null;
+  stargazers_count?: number;
+  forks_count?: number;
+  language?: string | null;
+  topics?: string[];
+  pushed_at: string;
+  homepage?: string | null;
+  archived?: boolean;
+  disabled?: boolean;
+};
+
+type GitHubUserResponse = {
+  avatar_url: string;
+  name: string | null;
+  login: string;
+  bio?: string | null;
+  followers: number;
+  following: number;
+  public_repos: number;
+};
+
+export type UserStats = {
+  avatar_url: string;
+  name: string | null;
+  login: string;
+  bio: string | null;
+  followers: number;
+  following: number;
+  public_repos: number;
+  totals: { stars: number; forks: number };
+  topLanguages: { name: string; count: number }[];
+};
+
 async function fetchPaginated<T>(
   path: string,
   searchParams: Record<string, string> = {}
@@ -58,7 +96,7 @@ async function fetchPaginated<T>(
 }
 
 export async function fetchAllRepos(): Promise<Repo[]> {
-  const raw = await fetchPaginated<any>(`users/${username}/repos`, {
+  const raw = await fetchPaginated<GitHubRepoResponse>(`users/${username}/repos`, {
     sort: "updated",
     direction: "desc",
   });
@@ -101,9 +139,9 @@ export async function fetchReposSortedByRecent(limit?: number): Promise<Repo[]> 
   return typeof limit === "number" ? repos.slice(0, limit) : repos;
 }
 
-export async function fetchUserStats() {
+export async function fetchUserStats(): Promise<UserStats> {
   const [user, repos] = await Promise.all([
-    rest.get(`users/${username}`).json<any>(),
+    rest.get(`users/${username}`).json<GitHubUserResponse>(),
     fetchAllRepos(),
   ]);
 

@@ -1,9 +1,3 @@
-type Props = {
-  name?: string;
-  bio?: string | null;
-  avatar?: string;
-};
-
 const badges = [
   "Quant Research",
   "Trading",
@@ -12,8 +6,7 @@ const badges = [
   "Full Stack"
 ];
 
-// export default function Hero({ name, bio }: Props) {
-export default function Hero({ }: Props) {
+export default function Hero() {
   return (
     <section className="hero container">
       <div className="hero-grid">

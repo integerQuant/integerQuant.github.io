@@ -3,6 +3,8 @@ import type { Repo } from "../lib/github";
 import { clsx } from "clsx";
 import { getLanguageColor } from "../lib/languageColors";
 
+type LangStyle = React.CSSProperties & { "--lang-color": string };
+
 export default function RepoCard({
   repo,
   className,
@@ -33,7 +35,7 @@ export default function RepoCard({
           <span
             className="lang"
             style={
-              langColor ? ({ ["--lang-color" as any]: langColor } as React.CSSProperties) : undefined
+              langColor ? ({ "--lang-color": langColor } as LangStyle) : undefined
             }
             title={repo.language}
           >

@@ -509,7 +509,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 12px;
-  max-width: 50%;
+  max-width: 920px;
 }
 
 /* Pill */

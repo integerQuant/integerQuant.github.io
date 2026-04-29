@@ -3,6 +3,7 @@ import { getLanguageColor } from "../lib/languageColors";
 import { deviconFor } from "../lib/devicon";
 
 type Lang = string;
+type PillStyle = React.CSSProperties & { "--pill-color": string };
 
 export default function LangPills({ langs }: { langs: Lang[] }) {
   return (
@@ -17,9 +18,9 @@ export default function LangPills({ langs }: { langs: Lang[] }) {
               key={name}
               className="pill reveal"
               style={{
-                ["--pill-color" as any]: color,
+                "--pill-color": color,
                 animationDelay: `${40 + i * 40}ms`
-              } as React.CSSProperties}
+              } as PillStyle}
               title={name}
             >
               {icon ? (
