@@ -1,5 +1,6 @@
 name: Deploy Vite to GitHub Pages
 on:
+  pull_request:
   push:
     branches: [ main ]
 permissions:
@@ -37,6 +38,7 @@ jobs:
           path: dist
 
   deploy:
+    if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
     environment:
