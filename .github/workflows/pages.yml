@@ -1,5 +1,6 @@
 name: Deploy Vite to GitHub Pages
 on:
+  pull_request:
   push:
     branches: [ main ]
 permissions:
@@ -20,6 +21,11 @@ jobs:
           node-version: 20
       - name: Install deps
         run: npm ci
+      - name: Test knietty bootstrap
+        run: |
+          sh -n public/knietty scripts/test-knietty-bootstrap.sh
+          shellcheck public/knietty scripts/test-knietty-bootstrap.sh
+          scripts/test-knietty-bootstrap.sh
       - name: Build
         run: npm run build
         env:
@@ -32,6 +38,7 @@ jobs:
           path: dist
 
   deploy:
+    if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
     environment:
